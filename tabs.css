@@ -1,0 +1,32 @@
+/**
+ * Turn them all on if nothing is targeted.
+ */
+[id^="tag:"]:not(:target) ~ [data-tag] {
+  display: block;
+}
+
+/**
+ * Turn them all off as soon as anything is targeted.
+ */
+[id^="tag:"]:target ~ [data-tag] {
+  display: none;
+}
+
+/**
+ * Turn individual ones back on when they are targeted.
+ */
+[id="tag:html"]:target ~ [data-tag~="html"] {
+  display: block;
+}
+
+[id="tag:css"]:target ~ [data-tag~="css"] {
+  display: block;
+}
+
+[id="tag:accessibility"]:target ~ [data-tag~="accessibility"] {
+  display: block;
+}
+
+[id="tag:performance"]:target ~ [data-tag~="performance"] {
+  display: block;
+}
