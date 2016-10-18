@@ -1,0 +1,27 @@
+// ----
+// libsass (v3.3.6)
+// http://www.sassmeister.com/gist/b2cea195a97de189dada78fb80eec641
+// ----
+
+/**
+ * Turn them all on if nothing is targeted.
+ */
+[id^="tag:"]:not(:target) ~ [data-tag] {
+  display: block;
+}
+
+/**
+ * Turn them all off as soon as anything is targeted.
+ */
+[id^="tag:"]:target ~ [data-tag] {
+  display: none;
+}
+
+/**
+ * Turn individual ones back on when they are targeted.
+ */
+@each $tag in html, css, accessibility, performance {
+  [id="tag:#{$tag}"]:target ~ [data-tag~="#{$tag}"] {
+    display: block;
+  }
+}
